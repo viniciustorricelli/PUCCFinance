@@ -27,7 +27,7 @@ export function Footer() {
             </a>
           </div>
 
-          {/* Navega├º├úo */}
+          {/* Navegação */}
           <nav className="flex flex-wrap items-center justify-center gap-x-7 gap-y-3">
             {footerLinks.map((link) => (
               <a

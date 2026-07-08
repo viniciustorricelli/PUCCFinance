@@ -1,4 +1,4 @@
-import { motion, useInView } from "framer-motion";
+﻿import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 
 const aboutText = [
@@ -51,3 +51,4 @@ export function About() {
     </section>
   );
 }
+
