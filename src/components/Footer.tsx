@@ -1,4 +1,4 @@
-import { Instagram, Linkedin } from "lucide-react";
+﻿import { Instagram, Linkedin } from "lucide-react";
 import logo from "@/assets/logo-pucc-finance.png";
 
 const footerLinks = [
@@ -21,13 +21,13 @@ export function Footer() {
             <a href="#inicio">
               <img
                 src={logo}
-                alt="PUCC Finance — Liga de Mercado Financeiro"
+                alt="PUCC Finance ÔÇö Liga de Mercado Financeiro"
                 className="h-40 w-auto transition-transform duration-500 ease-out hover:scale-105"
               />
             </a>
           </div>
 
-          {/* Navegação */}
+          {/* Navega├º├úo */}
           <nav className="flex flex-wrap items-center justify-center gap-x-7 gap-y-3">
             {footerLinks.map((link) => (
               <a
@@ -73,3 +73,4 @@ export function Footer() {
     </footer>
   );
 }
+
