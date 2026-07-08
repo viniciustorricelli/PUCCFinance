@@ -1,55 +1,11 @@
-import { useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 
 const NEWSLETTER_FORM_ID = "99cfce7e-34b0-4083-8495-93138ec9d590";
 
 const Newsletter = () => {
-  const formRef = useRef<HTMLDivElement | null>(null);
-
-  useEffect(() => {
-    if (!formRef.current) return;
-
-    const script = document.createElement("script");
-    script.async = true;
-    script.src = "https://subscribe-forms.beehiiv.com/v3/loader.js";
-    script.dataset.beehiivForm = NEWSLETTER_FORM_ID;
-
-    const adjustBeehiivLayout = () => {
-      if (!formRef.current) return;
-
-      formRef.current.querySelectorAll<HTMLElement>("*").forEach((element) => {
-        element.style.setProperty("width", "100%", "important");
-        element.style.setProperty("max-width", "100%", "important");
-        element.style.setProperty("min-width", "0", "important");
-        element.style.setProperty("box-sizing", "border-box", "important");
-      });
-    };
-
-    const observer = new MutationObserver(() => {
-      adjustBeehiivLayout();
-    });
-
-    observer.observe(formRef.current, {
-      childList: true,
-      subtree: true,
-      attributes: true,
-      attributeFilter: ["style", "class"],
-    });
-
-    script.onload = adjustBeehiivLayout;
-    formRef.current.appendChild(script);
-
-    const timeoutId = window.setTimeout(adjustBeehiivLayout, 1200);
-
-    return () => {
-      window.clearTimeout(timeoutId);
-      observer.disconnect();
-      if (formRef.current?.contains(script)) {
-        formRef.current.removeChild(script);
-      }
-    };
-  }, []);
+  const referrer = typeof window !== "undefined" ? encodeURIComponent(window.location.href) : "";
+  const newsletterSrc = `https://subscribe-forms.beehiiv.com/v3/forms/${NEWSLETTER_FORM_ID}?layout=slim&referrer=${referrer}`;
 
   return (
     <div className="newsletter-page min-h-screen bg-background text-foreground">
@@ -63,10 +19,17 @@ const Newsletter = () => {
             </p>
           </div>
 
-          <div
-            className="newsletter-embed w-full min-w-0 mt-10 rounded-[1.5rem] border border-white/10 bg-background/80 p-4 sm:p-6"
-            ref={formRef}
-          />
+          <div className="newsletter-embed w-full min-w-0 mt-10 rounded-[1.5rem] border border-white/10 bg-background/80 p-4 sm:p-6">
+            <div className="relative w-full overflow-hidden rounded-[1.5rem] bg-white">
+              <iframe
+                className="w-full min-w-0"
+                src={newsletterSrc}
+                title="Assine nossa newsletter"
+                style={{ width: '100%', minWidth: 0, height: '520px', border: 'none' }}
+                loading="lazy"
+              />
+            </div>
+          </div>
 
           <div className="mt-10 flex flex-col items-center gap-4">
             <Button asChild variant="gold" size="lg" className="w-full max-w-lg">
