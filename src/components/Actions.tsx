@@ -1,6 +1,10 @@
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import { ImageIcon } from "lucide-react";
+import acaoBrauna from "@/assets/brauna.jpeg";
+import acaoB3 from "@/assets/b3.jpeg";
+import acaoZSummit from "@/assets/Zsummit.jpg";
+import acaoXp from "@/assets/xpvisita.jpeg";
 
 /**
  * "Nossas ações" — registro das visitas e eventos que a liga já realizou.
@@ -25,28 +29,32 @@ interface Action {
 
 const actions: Action[] = [
   {
-    title: "Título da ação",
-    date: "Mês de 2026",
+    title: "Visita à Braúna",
+    date: "16 de março de 2026",
     description:
-      "Descreva aqui a visita ou o evento: onde foi, o que os membros aprenderam e qual foi o resultado para a liga. Substitua este texto e adicione a foto.",
+      "Visita à Braúna, aproximando nossos membros da rotina e das práticas do mercado financeiro.",
+    photo: acaoBrauna,
   },
   {
-    title: "Título da ação",
-    date: "Mês de 2026",
+    title: "Visita à B3",
+    date: "2 de abril de 2026",
     description:
-      "Descreva aqui a visita ou o evento: onde foi, o que os membros aprenderam e qual foi o resultado para a liga. Substitua este texto e adicione a foto.",
+      "Visita à B3, a bolsa de valores do Brasil, para conhecer de perto o funcionamento do mercado de capitais.",
+    photo: acaoB3,
   },
   {
-    title: "Título da ação",
-    date: "Mês de 2026",
+    title: "Visita ao ZSummit",
+    date: "25 de abril de 2026",
     description:
-      "Descreva aqui a visita ou o evento: onde foi, o que os membros aprenderam e qual foi o resultado para a liga. Substitua este texto e adicione a foto.",
+      "Participação no ZSummit, com palestras, networking e imersão nas tendências do mercado financeiro.",
+    photo: acaoZSummit,
   },
   {
-    title: "Título da ação",
-    date: "Mês de 2026",
+    title: "Visita à XP",
+    date: "30 de abril de 2026",
     description:
-      "Descreva aqui a visita ou o evento: onde foi, o que os membros aprenderam e qual foi o resultado para a liga. Substitua este texto e adicione a foto.",
+      "Visita à XP, um dos maiores nomes do mercado financeiro brasileiro, para conhecer sua atuação e cultura.",
+    photo: acaoXp,
   },
 ];
 
