@@ -1,0 +1,207 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* PUCC Finance — preto profundo, branco e dourado da marca */
+    --background: 0 0% 4%;
+    --foreground: 0 0% 98%;
+
+    --card: 0 0% 7%;
+    --card-foreground: 0 0% 98%;
+
+    --popover: 0 0% 8%;
+    --popover-foreground: 0 0% 98%;
+
+    /* Dourado da logo (#FFD400 aprox.) */
+    --primary: 49 100% 51%;
+    --primary-foreground: 0 0% 4%;
+
+    --secondary: 0 0% 11%;
+    --secondary-foreground: 0 0% 98%;
+
+    --muted: 0 0% 14%;
+    --muted-foreground: 0 0% 63%;
+
+    --accent: 49 100% 51%;
+    --accent-foreground: 0 0% 4%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 0 0% 13%;
+    --input: 0 0% 13%;
+    --ring: 49 100% 51%;
+
+    --radius: 0.75rem;
+
+    --sidebar-background: 0 0% 4%;
+    --sidebar-foreground: 0 0% 98%;
+    --sidebar-primary: 49 100% 51%;
+    --sidebar-primary-foreground: 0 0% 4%;
+    --sidebar-accent: 0 0% 10%;
+    --sidebar-accent-foreground: 0 0% 98%;
+    --sidebar-border: 0 0% 13%;
+    --sidebar-ring: 49 100% 51%;
+
+    --gold: 49 100% 51%;
+    --gold-light: 49 100% 62%;
+    --gold-dark: 45 100% 42%;
+    --blue: 0 0% 7%;
+    --blue-light: 0 0% 12%;
+    --blue-dark: 0 0% 3%;
+    --navy: 0 0% 4%;
+    --navy-light: 0 0% 8%;
+    --navy-lighter: 0 0% 13%;
+  }
+
+  .dark {
+    --background: 0 0% 4%;
+    --foreground: 0 0% 98%;
+    --card: 0 0% 7%;
+    --card-foreground: 0 0% 98%;
+    --popover: 0 0% 8%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 49 100% 51%;
+    --primary-foreground: 0 0% 4%;
+    --secondary: 0 0% 11%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 0 0% 14%;
+    --muted-foreground: 0 0% 63%;
+    --accent: 49 100% 51%;
+    --accent-foreground: 0 0% 4%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 13%;
+    --input: 0 0% 13%;
+    --ring: 49 100% 51%;
+    --sidebar-background: 0 0% 4%;
+    --sidebar-foreground: 0 0% 98%;
+    --sidebar-primary: 49 100% 51%;
+    --sidebar-primary-foreground: 0 0% 4%;
+    --sidebar-accent: 0 0% 10%;
+    --sidebar-accent-foreground: 0 0% 98%;
+    --sidebar-border: 0 0% 13%;
+    --sidebar-ring: 49 100% 51%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: 'Inter', sans-serif;
+    font-feature-settings: 'ss01' on, 'cv11' on;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Sora', sans-serif;
+    letter-spacing: -0.02em;
+  }
+
+  ::selection {
+    background: hsl(var(--primary) / 0.3);
+    color: hsl(var(--foreground));
+  }
+
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: hsl(var(--background));
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: hsl(0 0% 20%);
+    border-radius: 999px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: hsl(var(--primary) / 0.6);
+  }
+}
+
+@layer utilities {
+  .text-gradient-gold {
+    background: linear-gradient(135deg, hsl(var(--gold)), hsl(var(--gold-light)));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .bg-gradient-gold {
+    background: linear-gradient(135deg, hsl(var(--gold)), hsl(var(--gold-light)));
+  }
+
+  .bg-gradient-blue {
+    background: linear-gradient(180deg, hsl(0 0% 4% / 0.88), hsl(0 0% 7% / 0.88));
+  }
+
+  .bg-gradient-navy {
+    background: linear-gradient(180deg, hsl(0 0% 4% / 0.88), hsl(0 0% 2% / 0.88));
+  }
+
+  .border-gold {
+    border-color: hsl(var(--gold));
+  }
+
+  .shadow-gold {
+    box-shadow: 0 4px 30px -5px hsl(var(--gold) / 0.3);
+  }
+
+  .shadow-gold-lg {
+    box-shadow: 0 12px 40px -8px hsl(var(--gold) / 0.4);
+  }
+
+  .glow-gold {
+    box-shadow: 0 0 40px hsl(var(--gold) / 0.12);
+  }
+
+  .glow-gold-lg {
+    box-shadow: 0 20px 60px -15px hsl(var(--gold) / 0.28), 0 0 40px hsl(var(--gold) / 0.08);
+  }
+
+  /* Rótulo de seção estilo institucional: "— SOBRE" */
+  .section-label {
+    @apply inline-flex items-center gap-3 text-xs font-semibold uppercase tracking-[0.28em] text-primary;
+  }
+
+  .section-label::before {
+    content: '';
+    @apply block h-px w-8 bg-primary/70;
+  }
+
+  /* Cartão com leve vidro sobre o fundo escuro */
+  .glass-card {
+    background: linear-gradient(160deg, hsl(0 0% 100% / 0.05), hsl(0 0% 100% / 0.015));
+    border: 1px solid hsl(0 0% 100% / 0.08);
+    backdrop-filter: blur(12px);
+  }
+
+  .glass-card-hover {
+    transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1), border-color 0.4s ease, box-shadow 0.5s ease;
+  }
+
+  .glass-card-hover:hover {
+    transform: translateY(-6px);
+    border-color: hsl(var(--gold) / 0.35);
+    box-shadow: 0 24px 60px -20px hsl(0 0% 0% / 0.7), 0 0 50px hsl(var(--gold) / 0.07);
+  }
+
+  /* Grid técnico sutil para fundos de seção */
+  .bg-grid-subtle {
+    background-image:
+      linear-gradient(hsl(0 0% 100% / 0.025) 1px, transparent 1px),
+      linear-gradient(90deg, hsl(0 0% 100% / 0.025) 1px, transparent 1px);
+    background-size: 72px 72px;
+  }
+}
