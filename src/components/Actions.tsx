@@ -131,7 +131,7 @@ export function Actions() {
           </p>
         </motion.div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+        <div className="grid gap-5 sm:grid-cols-2">
           {actions.map((action, index) => (
             <ActionCard key={index} action={action} index={index} />
           ))}

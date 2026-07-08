@@ -84,7 +84,7 @@ export function Events() {
           </p>
         </motion.div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+        <div className="grid gap-5 md:grid-cols-3">
           {events.map((event, index) => (
             <EventCard key={event.title} event={event} index={index} />
           ))}
