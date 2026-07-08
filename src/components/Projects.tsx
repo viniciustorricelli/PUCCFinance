@@ -79,8 +79,9 @@ export function Projects() {
             Nossas Atividades
           </h2>
           <p className="mt-6 text-lg leading-relaxed text-muted-foreground">
-            Atuamos em três frentes principais, com foco em formação prática e
-            aproximação com o mercado financeiro.
+            Atuamos na formação não só educacional do aluno, mas também na sua
+            oratória, impacto social, competitividade e habilidade com
+            ferramentas do mercado.
           </p>
         </motion.div>
 

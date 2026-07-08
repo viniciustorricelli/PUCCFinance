@@ -20,6 +20,31 @@ const navLinks = [
 export function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [pendingHash, setPendingHash] = useState<string | null>(null);
+
+  // Ao tocar num link do menu mobile, fechamos o menu primeiro e só rolamos
+  // depois que a animação de saída termina. Rolar enquanto o menu colapsa
+  // cancela o smooth-scroll nativo (a mudança de layout interrompe a animação).
+  const handleMobileNavClick = (
+    e: React.MouseEvent<HTMLAnchorElement>,
+    href: string
+  ) => {
+    if (href.startsWith("#")) {
+      e.preventDefault();
+      setPendingHash(href);
+    }
+    setIsMobileMenuOpen(false);
+  };
+
+  const handleMenuExitComplete = () => {
+    if (!pendingHash) return;
+    const target = document.querySelector(pendingHash);
+    if (target) {
+      target.scrollIntoView({ behavior: "smooth" });
+      history.replaceState(null, "", pendingHash);
+    }
+    setPendingHash(null);
+  };
 
   useEffect(() => {
     const handleScroll = () => {
@@ -112,7 +137,7 @@ export function Header() {
       </div>
 
       {/* Mobile Menu */}
-      <AnimatePresence>
+      <AnimatePresence onExitComplete={handleMenuExitComplete}>
         {isMobileMenuOpen && (
           <motion.div
             initial={{ opacity: 0, height: 0 }}
@@ -127,7 +152,7 @@ export function Header() {
                   key={link.name}
                   href={link.href}
                   className="text-foreground/70 hover:text-foreground hover:bg-white/[0.04] rounded-lg px-4 py-3 text-base font-medium transition-all duration-300"
-                  onClick={() => setIsMobileMenuOpen(false)}
+                  onClick={(e) => handleMobileNavClick(e, link.href)}
                 >
                   {link.name}
                 </a>
@@ -153,7 +178,7 @@ export function Header() {
                 </a>
               </div>
               <Button variant="gold" className="mt-5 mx-4" asChild>
-                <a href="#contato" onClick={() => setIsMobileMenuOpen(false)}>
+                <a href="#contato" onClick={(e) => handleMobileNavClick(e, "#contato")}>
                   Entre em Contato
                 </a>
               </Button>
