@@ -36,7 +36,7 @@ const Newsletter = () => {
           </div>
 
           <div
-            className="newsletter-embed mt-10 rounded-[1.5rem] border border-white/10 bg-background/80 p-4 sm:p-6"
+            className="newsletter-embed w-full min-w-0 mt-10 rounded-[1.5rem] border border-white/10 bg-background/80 p-4 sm:p-6"
             ref={formRef}
           />
 
