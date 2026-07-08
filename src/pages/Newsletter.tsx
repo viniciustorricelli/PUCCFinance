@@ -35,7 +35,10 @@ const Newsletter = () => {
             </p>
           </div>
 
-          <div className="mt-10 rounded-[1.5rem] border border-white/10 bg-background/80 p-4 sm:p-6" ref={formRef} />
+          <div
+            className="mt-10 rounded-[1.5rem] border border-white/10 bg-background/80 p-6 sm:p-8 min-h-[520px]"
+            ref={formRef}
+          />
 
           <div className="mt-10 flex flex-col items-center gap-4">
             <Button asChild variant="gold" size="lg" className="w-full max-w-lg">
