@@ -10,16 +10,20 @@ const Newsletter = () => {
   useEffect(() => {
     if (!formRef.current) return;
 
+    const container = formRef.current;
+    container.innerHTML = "";
+
     const script = document.createElement("script");
     script.async = true;
     script.src = "https://subscribe-forms.beehiiv.com/v3/loader.js";
     script.dataset.beehiivForm = NEWSLETTER_FORM_ID;
-    formRef.current.appendChild(script);
+    container.appendChild(script);
 
     return () => {
-      if (formRef.current?.contains(script)) {
-        formRef.current.removeChild(script);
+      if (container.contains(script)) {
+        container.removeChild(script);
       }
+      container.innerHTML = "";
     };
   }, []);
 
