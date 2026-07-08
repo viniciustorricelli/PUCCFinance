@@ -14,9 +14,37 @@ const Newsletter = () => {
     script.async = true;
     script.src = "https://subscribe-forms.beehiiv.com/v3/loader.js";
     script.dataset.beehiivForm = NEWSLETTER_FORM_ID;
+
+    const adjustBeehiivLayout = () => {
+      if (!formRef.current) return;
+
+      formRef.current.querySelectorAll<HTMLElement>("*").forEach((element) => {
+        element.style.setProperty("width", "100%", "important");
+        element.style.setProperty("max-width", "100%", "important");
+        element.style.setProperty("min-width", "0", "important");
+        element.style.setProperty("box-sizing", "border-box", "important");
+      });
+    };
+
+    const observer = new MutationObserver(() => {
+      adjustBeehiivLayout();
+    });
+
+    observer.observe(formRef.current, {
+      childList: true,
+      subtree: true,
+      attributes: true,
+      attributeFilter: ["style", "class"],
+    });
+
+    script.onload = adjustBeehiivLayout;
     formRef.current.appendChild(script);
 
+    const timeoutId = window.setTimeout(adjustBeehiivLayout, 1200);
+
     return () => {
+      window.clearTimeout(timeoutId);
+      observer.disconnect();
       if (formRef.current?.contains(script)) {
         formRef.current.removeChild(script);
       }
