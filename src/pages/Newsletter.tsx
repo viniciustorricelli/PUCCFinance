@@ -25,20 +25,20 @@ const Newsletter = () => {
 
   return (
     <div className="min-h-screen bg-background text-foreground">
-      <div className="container mx-auto px-4 py-24">
-        <div className="mx-auto max-w-3xl rounded-[2rem] border border-white/10 bg-white/5 p-8 shadow-2xl shadow-black/10 backdrop-blur-xl">
+      <div className="container mx-auto px-4 py-20 sm:py-24">
+        <div className="mx-auto max-w-3xl rounded-[2rem] border border-white/10 bg-white/5 p-6 shadow-2xl shadow-black/10 backdrop-blur-xl sm:p-10">
           <div className="text-center">
             <p className="text-sm uppercase tracking-[0.35em] text-primary/80">Newsletter</p>
-            <h1 className="mt-4 text-4xl font-semibold sm:text-5xl">Assine nossa newsletter</h1>
-            <p className="mt-4 text-base leading-7 text-foreground/70 sm:text-lg">
+            <h1 className="mt-4 text-3xl font-semibold sm:text-5xl">Assine nossa newsletter</h1>
+            <p className="mx-auto mt-4 max-w-2xl text-base leading-7 text-foreground/70 sm:text-lg">
               Notícias semanalmente, te atualizando sobre o Mercado Financeiro, conjuntura econômica global e o mundo dos negócios.
             </p>
           </div>
 
-          <div className="mt-10" ref={formRef} />
+          <div className="mt-10 overflow-hidden rounded-[1.5rem] border border-white/10 bg-background/80 p-4 sm:p-6" ref={formRef} />
 
           <div className="mt-10 flex justify-center">
-            <Button asChild variant="outline" size="lg">
+            <Button asChild variant="gold" size="lg" className="w-full sm:w-auto">
               <Link to="/">Voltar para a página inicial</Link>
             </Button>
           </div>
