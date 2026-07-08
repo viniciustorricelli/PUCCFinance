@@ -7,6 +7,7 @@ const footerLinks = [
   { name: "Equipe", href: "#equipe" },
   { name: "Parceiros", href: "#parceiros" },
   { name: "Eventos", href: "#eventos" },
+  { name: "Newsletter", href: "/newsletter" },
   { name: "Contato", href: "#contato" },
 ];
 
