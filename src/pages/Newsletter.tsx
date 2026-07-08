@@ -24,7 +24,7 @@ const Newsletter = () => {
   }, []);
 
   return (
-    <div className="min-h-screen bg-background text-foreground">
+    <div className="newsletter-page min-h-screen bg-background text-foreground">
       <div className="container mx-auto px-4 py-20 sm:py-24">
         <div className="mx-auto max-w-3xl rounded-[2rem] border border-white/10 bg-white/5 p-6 shadow-2xl shadow-black/10 backdrop-blur-xl sm:p-10">
           <div className="text-center">
@@ -35,7 +35,10 @@ const Newsletter = () => {
             </p>
           </div>
 
-          <div className="mt-10 rounded-[1.5rem] border border-white/10 bg-background/80 p-4 sm:p-6" ref={formRef} />
+          <div
+            className="newsletter-embed mt-10 rounded-[1.5rem] border border-white/10 bg-background/80 p-4 sm:p-6"
+            ref={formRef}
+          />
 
           <div className="mt-10 flex flex-col items-center gap-4">
             <Button asChild variant="gold" size="lg" className="w-full max-w-lg">

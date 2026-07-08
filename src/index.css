@@ -154,6 +154,29 @@
     border-color: hsl(var(--gold));
   }
 
+  .newsletter-embed iframe,
+  .newsletter-embed form,
+  .newsletter-embed div,
+  .newsletter-embed * {
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  @media (max-width: 640px) {
+    .newsletter-embed {
+      padding: 0 !important;
+    }
+
+    .newsletter-embed iframe,
+    .newsletter-embed form,
+    .newsletter-embed div,
+    .newsletter-embed * {
+      padding: 0 !important;
+      margin: 0 !important;
+    }
+  }
+
   .shadow-gold {
     box-shadow: 0 4px 30px -5px hsl(var(--gold) / 0.3);
   }
