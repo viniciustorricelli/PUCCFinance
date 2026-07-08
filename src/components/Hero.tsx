@@ -9,17 +9,20 @@ export function Hero() {
       id="inicio"
       className="relative min-h-screen flex items-center justify-center overflow-hidden pt-24 pb-20"
     >
-      {/* Vídeo de fundo: skyline financeiro de São Paulo ao pôr do sol (Pexels, uso livre) */}
+      {/* Vídeo de fundo: aérea da Ponte Estaiada e das torres corporativas da
+          Faria Lima / Berrini — o polo financeiro de São Paulo (Pexels, uso livre).
+          O poster (1º frame) aparece instantâneo enquanto o vídeo carrega. */}
       <div className="absolute inset-0" aria-hidden="true">
         <video
           autoPlay
           muted
           loop
           playsInline
-          preload="metadata"
+          preload="auto"
+          poster="/videos/hero-poster.jpg"
           className="h-full w-full object-cover opacity-40"
         >
-          <source src="/videos/hero-sao-paulo.mp4" type="video/mp4" />
+          <source src="/videos/hero-faria-lima.mp4" type="video/mp4" />
         </video>
         {/* Overlays para legibilidade: escurecimento geral + fusão com o fundo nas bordas */}
         <div className="absolute inset-0 bg-background/50" />
