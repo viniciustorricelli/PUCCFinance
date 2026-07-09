@@ -27,7 +27,7 @@ export function Partners() {
   const isInView = useInView(ref, { once: true, margin: "-80px" });
 
   return (
-    <section id="parceiros" className="relative py-28 sm:py-36">
+    <section id="parceiros" className="relative py-16 sm:py-24">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           ref={ref}

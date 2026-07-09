@@ -112,7 +112,7 @@ export function Actions() {
   const titleInView = useInView(titleRef, { once: true, margin: "-80px" });
 
   return (
-    <section id="acoes" className="relative py-28 sm:py-36">
+    <section id="acoes" className="relative py-16 sm:py-24">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           ref={titleRef}

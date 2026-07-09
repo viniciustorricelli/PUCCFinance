@@ -11,7 +11,7 @@ export function About() {
   const titleInView = useInView(titleRef, { once: true, margin: "-80px" });
 
   return (
-    <section id="sobre" className="relative py-28 sm:py-36">
+    <section id="sobre" className="relative py-16 sm:py-24">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-[5fr_7fr] gap-14 lg:gap-20 items-start">
           {/* Coluna esquerda: título e introdução */}
