@@ -20,9 +20,10 @@ export function Hero() {
       id="inicio"
       className="relative min-h-screen flex items-center justify-center overflow-hidden pt-24 pb-20"
     >
-      {/* Vídeo de fundo: aérea da Ponte Estaiada e das torres corporativas da
-          Faria Lima / Berrini — o polo financeiro de São Paulo (Pexels, uso livre).
-          O poster (1º frame) aparece instantâneo enquanto o vídeo carrega. */}
+      {/* Vídeo de fundo: aérea das torres corporativas de vidro da Faria Lima —
+          o polo financeiro de São Paulo. Enquadramento aproximado para destacar
+          as fachadas espelhadas. O poster (1º frame) aparece instantâneo enquanto
+          o vídeo carrega. */}
       <div className="absolute inset-0" aria-hidden="true">
         <video
           ref={videoRef}
@@ -31,10 +32,10 @@ export function Hero() {
           loop
           playsInline
           preload="auto"
-          poster="/videos/hero-poster.jpg"
+          poster="/videos/hero-vidro-poster.jpg"
           className="h-full w-full object-cover opacity-[0.65]"
         >
-          <source src="/videos/hero-faria-lima.mp4" type="video/mp4" />
+          <source src="/videos/hero-vidro.mp4" type="video/mp4" />
         </video>
         {/* Overlays para legibilidade: escurecimento leve + fusão com o fundo nas bordas.
             Mantido suave para não escurecer demais o vídeo. */}
