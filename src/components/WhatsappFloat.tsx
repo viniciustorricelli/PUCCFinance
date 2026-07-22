@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { motion } from "framer-motion";
+import { useIsMobile } from "@/hooks/use-mobile";
 
 const WHATSAPP_COMMUNITY_URL = "https://chat.whatsapp.com/FkKKKBVbfGF8OYRf84pmtX";
 
@@ -12,52 +12,59 @@ function WhatsappIcon({ className }: { className?: string }) {
 }
 
 export function WhatsappFloat() {
-  // O rótulo fica expandido enquanto a tela inicial (Hero) está visível e se
-  // recolhe assim que o usuário desce para a seção "Sobre" — sem cobrir o
-  // conteúdo. No desktop, passar o mouse também expande.
-  const [labelOpen, setLabelOpen] = useState(true);
+  const [heroInView, setHeroInView] = useState(true);
+  const [hovered, setHovered] = useState(false);
+  const [ready, setReady] = useState(false);
+  const isMobile = useIsMobile();
+
+  useEffect(() => setReady(true), []);
 
   useEffect(() => {
     const hero = document.getElementById("inicio");
     if (!hero) return;
 
     const observer = new IntersectionObserver(
-      ([entry]) => setLabelOpen(entry.isIntersecting),
+      ([entry]) => setHeroInView(entry.isIntersecting),
       { threshold: 0.25 }
     );
     observer.observe(hero);
     return () => observer.disconnect();
   }, []);
 
+  // No celular, o botão só aparece depois que a tela inicial (Hero) sai de
+  // vista — assim a logo central fica livre e maior, sem sobreposição. No
+  // desktop, ele fica sempre visível.
+  const visible = ready && (isMobile ? !heroInView : true);
+  // O rótulo só expande no desktop (na tela inicial ou no hover); no celular
+  // fica apenas o ícone, para não cobrir o conteúdo.
+  const expanded = !isMobile && (heroInView || hovered);
+
   return (
-    <motion.a
+    <a
       href={WHATSAPP_COMMUNITY_URL}
       target="_blank"
       rel="noopener noreferrer"
       aria-label="Entre na Comunidade PUCC Finance no WhatsApp"
-      onMouseEnter={() => setLabelOpen(true)}
-      onMouseLeave={() => setLabelOpen(false)}
-      initial={{ opacity: 0, y: 12 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.5, delay: 0.5, ease: [0.22, 1, 0.36, 1] }}
-      className={`group fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-50 flex items-center rounded-full bg-[#25D366] text-white shadow-[0_5px_18px_-4px_rgba(37,211,102,0.45)] transition-all duration-300 hover:brightness-105 ${
-        labelOpen ? "gap-2.5 py-3 pl-4 pr-5" : "gap-0 p-2.5 sm:p-3"
-      }`}
+      onMouseEnter={() => setHovered(true)}
+      onMouseLeave={() => setHovered(false)}
+      className={`group fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-50 flex items-center rounded-full bg-[#25D366] text-white shadow-[0_5px_18px_-4px_rgba(37,211,102,0.45)] transition-all duration-500 ease-out hover:brightness-105 ${
+        visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4 pointer-events-none"
+      } ${expanded ? "gap-2.5 py-3 pl-4 pr-5" : "gap-0 p-2.5 sm:p-3"}`}
     >
       {/* Anel pulsante bem sutil, só no desktop, para atrair o olhar sem incomodar no mobile */}
       <span className="pointer-events-none absolute inset-0 hidden sm:block rounded-full bg-[#25D366] opacity-20 animate-ping [animation-duration:3s]" />
       <WhatsappIcon
         className={`relative shrink-0 transition-all duration-300 ${
-          labelOpen ? "h-6 w-6 sm:h-7 sm:w-7" : "h-5 w-5 sm:h-6 sm:w-6"
+          expanded ? "h-6 w-6 sm:h-7 sm:w-7" : "h-5 w-5 sm:h-6 sm:w-6"
         }`}
       />
       <span
         className={`relative overflow-hidden whitespace-nowrap font-semibold transition-all duration-300 ${
-          labelOpen ? "max-w-[240px] opacity-100 text-[15px] sm:text-base" : "max-w-0 opacity-0"
+          expanded ? "max-w-[240px] opacity-100 text-[15px] sm:text-base" : "max-w-0 opacity-0"
         }`}
       >
         Comunidade no WhatsApp
       </span>
-    </motion.a>
+    </a>
   );
 }
