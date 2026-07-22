@@ -31,12 +31,10 @@ export function WhatsappFloat() {
     return () => observer.disconnect();
   }, []);
 
-  // No celular, o botão só aparece depois que a tela inicial (Hero) sai de
-  // vista — assim a logo central fica livre e maior, sem sobreposição. No
-  // desktop, ele fica sempre visível.
-  const visible = ready && (isMobile ? !heroInView : true);
+  // Sempre visível (inclusive na primeira tela do celular).
+  const visible = ready;
   // O rótulo só expande no desktop (na tela inicial ou no hover); no celular
-  // fica apenas o ícone, para não cobrir o conteúdo.
+  // fica apenas o ícone pequeno no canto, para sobrepor o mínimo do conteúdo.
   const expanded = !isMobile && (heroInView || hovered);
 
   return (
