@@ -52,53 +52,51 @@ function ChallengeCard() {
         aria-hidden="true"
       />
 
-      <div className="relative flex flex-col gap-7 lg:flex-row lg:items-start lg:justify-between">
-        <div className="max-w-2xl">
-          {/* Logo Volare em destaque + status */}
-          <div className="flex flex-wrap items-center gap-4">
-            <div className="flex h-16 sm:h-20 items-center rounded-2xl border border-primary/40 bg-gradient-to-b from-white/[0.07] to-white/[0.02] px-6 sm:px-9 shadow-[0_0_50px_-10px_hsl(49_100%_51%/0.4)]">
-              <img
-                src={volareLogo}
-                alt="Volare Investimentos | XP"
-                className="h-6 sm:h-8 w-auto object-contain"
-              />
-            </div>
-            <span className="rounded-full border border-emerald-400/40 bg-emerald-400/10 px-3.5 py-1.5 text-[11px] font-semibold uppercase tracking-wider text-emerald-300">
-              Em preparação
-            </span>
+      <div className="relative">
+        {/* Cabeçalho: título à esquerda, logo Volare à direita */}
+        <div className="flex flex-col-reverse gap-6 sm:flex-row sm:items-start sm:justify-between">
+          <div className="max-w-2xl">
+            <h2 className="text-3xl sm:text-4xl lg:text-[44px] font-display font-bold leading-[1.12] tracking-tight text-foreground">
+              Desafio Volare
+            </h2>
+            <p className="mt-2 text-sm uppercase tracking-[0.2em] text-primary/80">
+              Desafio de estrutura de portfólio
+            </p>
           </div>
 
-          <h2 className="mt-6 text-3xl sm:text-4xl lg:text-[44px] font-display font-bold leading-[1.12] tracking-tight text-foreground">
-            Desafio Volare
-          </h2>
-          <p className="mt-2 text-sm uppercase tracking-[0.2em] text-primary/80">
-            Desafio de estrutura de portfólio
-          </p>
-
-          <p className="mt-5 text-lg leading-relaxed text-muted-foreground sm:text-justify">
-            Monte e defenda a carteira de investimentos mais consistente com
-            base em risco, diversificação e estratégia. Coloque em prática o que
-            aprende sobre o mercado e dispute prêmios ao lado da Volare
-            Investimentos | XP.
-          </p>
-
-          <div className="mt-7">
-            <Button variant="hero" size="xl" asChild>
-              <a
-                href={VOLARE_FORM_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group"
-              >
-                Inscreva-se no desafio
-                <ArrowRight className="transition-transform duration-300 group-hover:translate-x-1" />
-              </a>
-            </Button>
+          {/* Logo Volare em destaque, no canto direito */}
+          <div className="flex h-16 sm:h-20 w-fit shrink-0 items-center rounded-2xl border border-primary/40 bg-gradient-to-b from-white/[0.07] to-white/[0.02] px-6 sm:px-9 shadow-[0_0_50px_-10px_hsl(49_100%_51%/0.4)]">
+            <img
+              src={volareLogo}
+              alt="Volare Investimentos | XP"
+              className="h-6 sm:h-8 w-auto object-contain"
+            />
           </div>
         </div>
 
+        <p className="mt-6 max-w-2xl text-lg leading-relaxed text-muted-foreground sm:text-justify">
+          Monte e defenda a carteira de investimentos mais consistente com
+          base em risco, diversificação e estratégia. Coloque em prática o que
+          aprende sobre o mercado e dispute prêmios ao lado da Volare
+          Investimentos | XP.
+        </p>
+
+        <div className="mt-7">
+          <Button variant="hero" size="xl" asChild>
+            <a
+              href={VOLARE_FORM_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group"
+            >
+              Inscreva-se no desafio
+              <ArrowRight className="transition-transform duration-300 group-hover:translate-x-1" />
+            </a>
+          </Button>
+        </div>
+
         {/* Premiação */}
-        <div className="grid w-full gap-4 sm:grid-cols-3 lg:w-auto lg:max-w-xs lg:grid-cols-1">
+        <div className="mt-9 grid gap-4 sm:grid-cols-3">
           {prizes.map((prize) => (
             <div
               key={prize.title}
