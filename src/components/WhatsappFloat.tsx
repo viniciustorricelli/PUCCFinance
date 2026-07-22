@@ -37,11 +37,11 @@ export function WhatsappFloat() {
       initial={{ opacity: 0, scale: 0.6, y: 20 }}
       animate={{ opacity: 1, scale: 1, y: 0 }}
       transition={{ duration: 0.5, delay: 0.9, ease: [0.22, 1, 0.36, 1] }}
-      className="group fixed bottom-5 right-5 sm:bottom-7 sm:right-7 z-50 flex items-center gap-3 rounded-full bg-[#25D366] py-3.5 pl-3.5 pr-4 text-white shadow-[0_10px_30px_-8px_rgba(37,211,102,0.6)] transition-all duration-300 hover:brightness-105 hover:shadow-[0_12px_36px_-8px_rgba(37,211,102,0.75)]"
+      className="group fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-50 flex items-center gap-2 sm:gap-2.5 rounded-full bg-[#25D366] p-2.5 sm:py-3 sm:pl-3 sm:pr-3.5 text-white shadow-[0_4px_14px_-4px_rgba(37,211,102,0.4)] transition-all duration-300 hover:brightness-105"
     >
-      {/* Anel pulsante sutil para atrair o olhar */}
-      <span className="pointer-events-none absolute inset-0 rounded-full bg-[#25D366] opacity-60 animate-ping [animation-duration:2.6s]" />
-      <WhatsappIcon className="relative h-7 w-7 shrink-0" />
+      {/* Anel pulsante bem sutil, só no desktop, para atrair o olhar sem incomodar no mobile */}
+      <span className="pointer-events-none absolute inset-0 hidden sm:block rounded-full bg-[#25D366] opacity-20 animate-ping [animation-duration:3s]" />
+      <WhatsappIcon className="relative h-5 w-5 sm:h-6 sm:w-6 shrink-0" />
       <span
         className={`relative overflow-hidden whitespace-nowrap text-sm font-semibold transition-all duration-300 ${
           labelOpen ? "max-w-[220px] opacity-100" : "max-w-0 opacity-0 group-hover:max-w-[220px] group-hover:opacity-100"
