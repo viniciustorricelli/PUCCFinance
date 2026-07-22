@@ -76,8 +76,14 @@ export function Header() {
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="relative flex items-center justify-between h-20 lg:h-24">
-          {/* Logo — propositalmente maior que a barra do header para dar presença */}
-          <a href="#inicio" className="relative z-10 flex items-center gap-3 group">
+          {/* Logo — escondida no topo (onde a logo central do Hero é o destaque)
+              e revelada conforme o usuário rola a página para baixo. */}
+          <a
+            href="#inicio"
+            className={`relative z-10 flex items-center gap-3 group transition-all duration-500 ease-out ${
+              isScrolled ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-2 pointer-events-none"
+            }`}
+          >
             <img
               src={logo}
               alt="PUCC Finance — Liga de Mercado Financeiro"

@@ -53,7 +53,7 @@ export function Hero() {
           <img
             src={logo}
             alt="PUCC Finance — Liga de Mercado Financeiro"
-            className="h-44 sm:h-80 md:h-96 w-auto drop-shadow-[0_0_60px_hsl(49,100%,51%,0.25)]"
+            className="h-52 sm:h-80 md:h-96 w-auto drop-shadow-[0_0_60px_hsl(49,100%,51%,0.25)]"
           />
         </motion.div>
 
