@@ -48,12 +48,12 @@ export function Hero() {
           initial={{ opacity: 0, y: 20, scale: 0.95 }}
           animate={{ opacity: 1, y: 0, scale: 1 }}
           transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
-          className="mb-4 flex justify-center"
+          className="mb-2 sm:mb-4 flex justify-center"
         >
           <img
             src={logo}
             alt="PUCC Finance — Liga de Mercado Financeiro"
-            className="h-64 sm:h-80 md:h-96 w-auto drop-shadow-[0_0_60px_hsl(49,100%,51%,0.25)]"
+            className="h-44 sm:h-80 md:h-96 w-auto drop-shadow-[0_0_60px_hsl(49,100%,51%,0.25)]"
           />
         </motion.div>
 
@@ -74,7 +74,7 @@ export function Hero() {
           initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.9, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
-          className="mx-auto mt-7 max-w-2xl text-lg sm:text-xl font-light leading-relaxed text-foreground/60"
+          className="mx-auto mt-4 sm:mt-7 max-w-2xl text-lg sm:text-xl font-light leading-relaxed text-foreground/60"
         >
           Formação prática e aproximação com o mercado financeiro para os
           alunos da PUC-Campinas.
@@ -85,7 +85,7 @@ export function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.9, delay: 0.45, ease: [0.22, 1, 0.36, 1] }}
-          className="mt-12 flex flex-col sm:flex-row items-center justify-center gap-4"
+          className="mt-8 sm:mt-12 flex flex-col sm:flex-row items-center justify-center gap-4"
         >
           <Button variant="hero" size="xl" className="w-full sm:w-64" asChild>
             <a href="#contato" className="group">
