@@ -37,17 +37,23 @@ export function WhatsappFloat() {
       aria-label="Entre na Comunidade PUCC Finance no WhatsApp"
       onMouseEnter={() => setLabelOpen(true)}
       onMouseLeave={() => setLabelOpen(false)}
-      initial={{ opacity: 0, scale: 0.6, y: 20 }}
-      animate={{ opacity: 1, scale: 1, y: 0 }}
-      transition={{ duration: 0.5, delay: 0.9, ease: [0.22, 1, 0.36, 1] }}
-      className="group fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-50 flex items-center gap-2 sm:gap-2.5 rounded-full bg-[#25D366] p-2.5 sm:py-3 sm:pl-3 sm:pr-3.5 text-white shadow-[0_4px_14px_-4px_rgba(37,211,102,0.4)] transition-all duration-300 hover:brightness-105"
+      initial={{ opacity: 0, y: 12 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5, delay: 0.5, ease: [0.22, 1, 0.36, 1] }}
+      className={`group fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-50 flex items-center rounded-full bg-[#25D366] text-white shadow-[0_5px_18px_-4px_rgba(37,211,102,0.45)] transition-all duration-300 hover:brightness-105 ${
+        labelOpen ? "gap-2.5 py-3 pl-4 pr-5" : "gap-0 p-2.5 sm:p-3"
+      }`}
     >
       {/* Anel pulsante bem sutil, só no desktop, para atrair o olhar sem incomodar no mobile */}
       <span className="pointer-events-none absolute inset-0 hidden sm:block rounded-full bg-[#25D366] opacity-20 animate-ping [animation-duration:3s]" />
-      <WhatsappIcon className="relative h-5 w-5 sm:h-6 sm:w-6 shrink-0" />
+      <WhatsappIcon
+        className={`relative shrink-0 transition-all duration-300 ${
+          labelOpen ? "h-6 w-6 sm:h-7 sm:w-7" : "h-5 w-5 sm:h-6 sm:w-6"
+        }`}
+      />
       <span
-        className={`relative overflow-hidden whitespace-nowrap text-sm font-semibold transition-all duration-300 ${
-          labelOpen ? "max-w-[220px] opacity-100" : "max-w-0 opacity-0 group-hover:max-w-[220px] group-hover:opacity-100"
+        className={`relative overflow-hidden whitespace-nowrap font-semibold transition-all duration-300 ${
+          labelOpen ? "max-w-[240px] opacity-100 text-[15px] sm:text-base" : "max-w-0 opacity-0"
         }`}
       >
         Comunidade no WhatsApp
