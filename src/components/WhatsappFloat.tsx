@@ -12,18 +12,21 @@ function WhatsappIcon({ className }: { className?: string }) {
 }
 
 export function WhatsappFloat() {
-  // O rótulo se expande sozinho por alguns segundos ao abrir o site para
-  // chamar atenção, depois recolhe — sem cobrir o conteúdo nem competir com
-  // a faixa do processo seletivo. Ao passar o mouse, volta a expandir.
-  const [labelOpen, setLabelOpen] = useState(false);
+  // O rótulo fica expandido enquanto a tela inicial (Hero) está visível e se
+  // recolhe assim que o usuário desce para a seção "Sobre" — sem cobrir o
+  // conteúdo. No desktop, passar o mouse também expande.
+  const [labelOpen, setLabelOpen] = useState(true);
 
   useEffect(() => {
-    const showTimer = setTimeout(() => setLabelOpen(true), 1400);
-    const hideTimer = setTimeout(() => setLabelOpen(false), 6400);
-    return () => {
-      clearTimeout(showTimer);
-      clearTimeout(hideTimer);
-    };
+    const hero = document.getElementById("inicio");
+    if (!hero) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => setLabelOpen(entry.isIntersecting),
+      { threshold: 0.25 }
+    );
+    observer.observe(hero);
+    return () => observer.disconnect();
   }, []);
 
   return (
