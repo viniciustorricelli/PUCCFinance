@@ -125,7 +125,7 @@ export function Team() {
           <h2 className="mt-5 text-3xl sm:text-4xl lg:text-[44px] font-display font-bold leading-[1.12] tracking-tight text-foreground">
             Quem faz acontecer
           </h2>
-          <p className="mt-6 text-lg leading-relaxed text-muted-foreground">
+          <p className="mt-6 text-lg leading-relaxed text-muted-foreground text-justify">
             Alunos da PUC-Campinas dedicados a construir uma comunidade de
             excelência em finanças.
           </p>

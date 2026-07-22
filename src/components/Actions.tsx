@@ -99,7 +99,7 @@ function ActionCard({ action, index }: { action: Action; index: number }) {
         <h3 className="text-xl sm:text-2xl font-display font-semibold leading-snug text-foreground">
           {action.title}
         </h3>
-        <p className="mt-2.5 text-base leading-relaxed text-muted-foreground">
+        <p className="mt-2.5 text-base leading-relaxed text-muted-foreground text-justify">
           {action.description}
         </p>
       </div>
@@ -125,7 +125,7 @@ export function Actions() {
           <h2 className="mt-5 text-4xl sm:text-5xl lg:text-[52px] font-display font-bold leading-[1.12] tracking-tight text-foreground">
             O que já realizamos
           </h2>
-          <p className="mt-6 text-xl leading-relaxed text-muted-foreground">
+          <p className="mt-6 text-xl leading-relaxed text-muted-foreground text-justify">
             Visitas técnicas, eventos e encontros que aproximaram nossos membros
             do mercado financeiro na prática.
           </p>

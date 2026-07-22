@@ -53,7 +53,7 @@ function ProjectCard({
       <h3 className="text-2xl font-display font-semibold text-foreground mb-2.5 leading-snug">
         {project.title}
       </h3>
-      <p className="text-lg leading-relaxed text-muted-foreground">
+      <p className="text-lg leading-relaxed text-muted-foreground text-justify">
         {project.description}
       </p>
     </motion.div>
@@ -78,7 +78,7 @@ export function Projects() {
           <h2 className="mt-5 text-3xl sm:text-4xl lg:text-[44px] font-display font-bold leading-[1.12] tracking-tight text-foreground">
             Nossas Atividades
           </h2>
-          <p className="mt-6 text-lg leading-relaxed text-muted-foreground">
+          <p className="mt-6 text-lg leading-relaxed text-muted-foreground text-justify">
             Atuamos na formação não só educacional do aluno, mas também na sua
             oratória, impacto social, competitividade e habilidade com
             ferramentas do mercado.
