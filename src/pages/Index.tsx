@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { Header } from "@/components/Header";
 import { Hero } from "@/components/Hero";
 import { About } from "@/components/About";
@@ -11,6 +12,15 @@ import { Footer } from "@/components/Footer";
 import { AnimatedBackground } from "@/components/AnimatedBackground";
 
 const Index = () => {
+  // Ao chegar de outra página com um hash na URL (ex.: vindo de /desafios
+  // para /#sobre), o navegador tenta rolar antes do React montar as seções.
+  // Refazemos a rolagem depois que o conteúdo já está na tela.
+  useEffect(() => {
+    if (!window.location.hash) return;
+    const target = document.querySelector(window.location.hash);
+    target?.scrollIntoView();
+  }, []);
+
   return (
     <div className="relative min-h-screen bg-background">
       <AnimatedBackground />

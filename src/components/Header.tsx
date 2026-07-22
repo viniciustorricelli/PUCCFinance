@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, Instagram, Linkedin, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -14,6 +15,7 @@ const navLinks = [
   { name: "Parceiros", href: "#parceiros" },
   { name: "Nossas ações", href: "#acoes" },
   { name: "Eventos", href: "#eventos" },
+  { name: "Desafios", href: "/desafios" },
   { name: "Newsletter", href: "/newsletter" },
   { name: "Contato", href: "#contato" },
 ];
@@ -22,6 +24,12 @@ export function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [pendingHash, setPendingHash] = useState<string | null>(null);
+  const isHome = useLocation().pathname === "/";
+
+  // Fora da página inicial, links de âncora (#sobre etc.) precisam apontar
+  // para "/#sobre" para navegar de volta e o navegador rolar até a seção.
+  const resolveHref = (href: string) =>
+    !isHome && href.startsWith("#") ? `/${href}` : href;
 
   // Ao tocar num link do menu mobile, fechamos o menu primeiro e só rolamos
   // depois que a animação de saída termina. Rolar enquanto o menu colapsa
@@ -79,7 +87,7 @@ export function Header() {
           {/* Logo — escondida no topo (onde a logo central do Hero é o destaque)
               e revelada conforme o usuário rola a página para baixo. */}
           <a
-            href="#inicio"
+            href={resolveHref("#inicio")}
             className={`relative z-10 flex items-center gap-3 group transition-all duration-500 ease-out ${
               isScrolled ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-2 pointer-events-none"
             }`}
@@ -96,7 +104,7 @@ export function Header() {
             {navLinks.map((link) => (
               <a
                 key={link.name}
-                href={link.href}
+                href={resolveHref(link.href)}
                 className="relative px-4 py-2 text-sm font-medium text-foreground/60 hover:text-foreground rounded-lg hover:bg-white/[0.04] transition-all duration-300"
               >
                 {link.name}
@@ -128,7 +136,7 @@ export function Header() {
             </div>
             <div className="h-4 w-px bg-white/10" />
             <Button variant="gold" size="sm" asChild>
-              <a href="#contato">Entre em Contato</a>
+              <a href={resolveHref("#contato")}>Entre em Contato</a>
             </Button>
           </div>
 
@@ -157,7 +165,7 @@ export function Header() {
               {navLinks.map((link) => (
                 <a
                   key={link.name}
-                  href={link.href}
+                  href={resolveHref(link.href)}
                   className="text-foreground/70 hover:text-foreground hover:bg-white/[0.04] rounded-lg px-4 py-3 text-base font-medium transition-all duration-300"
                   onClick={(e) => handleMobileNavClick(e, link.href)}
                 >
@@ -185,7 +193,7 @@ export function Header() {
                 </a>
               </div>
               <Button variant="gold" className="mt-5 mx-4" asChild>
-                <a href="#contato" onClick={(e) => handleMobileNavClick(e, "#contato")}>
+                <a href={resolveHref("#contato")} onClick={(e) => handleMobileNavClick(e, "#contato")}>
                   Entre em Contato
                 </a>
               </Button>

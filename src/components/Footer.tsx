@@ -1,4 +1,5 @@
 ﻿import { Instagram, Linkedin } from "lucide-react";
+import { useLocation } from "react-router-dom";
 import logo from "@/assets/logo-pucc-finance.png";
 
 const footerLinks = [
@@ -7,18 +8,26 @@ const footerLinks = [
   { name: "Equipe", href: "#equipe" },
   { name: "Parceiros", href: "#parceiros" },
   { name: "Eventos", href: "#eventos" },
+  { name: "Desafios", href: "/desafios" },
   { name: "Newsletter", href: "/newsletter" },
   { name: "Contato", href: "#contato" },
 ];
 
 export function Footer() {
+  const isHome = useLocation().pathname === "/";
+
+  // Fora da página inicial, links de âncora (#sobre etc.) precisam apontar
+  // para "/#sobre" para navegar de volta e o navegador rolar até a seção.
+  const resolveHref = (href: string) =>
+    !isHome && href.startsWith("#") ? `/${href}` : href;
+
   return (
     <footer className="relative border-t border-white/[0.06]">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-14">
         <div className="flex flex-col items-center gap-10 lg:flex-row lg:items-start lg:justify-between">
           {/* Marca */}
           <div className="flex flex-col items-center lg:items-start gap-4">
-            <a href="#inicio">
+            <a href={resolveHref("#inicio")}>
               <img
                 src={logo}
                 alt="PUCC Finance ÔÇö Liga de Mercado Financeiro"
@@ -32,7 +41,7 @@ export function Footer() {
             {footerLinks.map((link) => (
               <a
                 key={link.name}
-                href={link.href}
+                href={resolveHref(link.href)}
                 className="text-sm text-muted-foreground hover:text-foreground transition-colors duration-300"
               >
                 {link.name}
