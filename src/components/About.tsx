@@ -26,7 +26,7 @@ export function About() {
             <h2 className="mt-5 text-3xl sm:text-4xl lg:text-[44px] font-display font-bold leading-[1.12] tracking-tight text-foreground">
               Sobre a Liga
             </h2>
-            <p className="mt-6 text-lg leading-relaxed text-muted-foreground max-w-md text-justify">
+            <p className="mt-6 text-lg leading-relaxed text-muted-foreground max-w-md sm:text-justify">
               Somos uma entidade estudantil comprometida com a formação de
               profissionais preparados para o mercado financeiro.
             </p>
@@ -40,7 +40,7 @@ export function About() {
             transition={{ duration: 0.7, delay: 0.12, ease: [0.22, 1, 0.36, 1] }}
             className="glass-card glass-card-hover rounded-2xl p-7 sm:p-8 lg:p-10"
           >
-            <div className="space-y-5 text-base sm:text-lg leading-relaxed text-muted-foreground text-justify">
+            <div className="space-y-5 text-base sm:text-lg leading-relaxed text-muted-foreground sm:text-justify">
               {aboutText.map((paragraph) => (
                 <p key={paragraph}>{paragraph}</p>
               ))}

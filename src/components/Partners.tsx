@@ -46,7 +46,7 @@ export function Partners() {
           <h2 className="mt-5 text-3xl sm:text-4xl font-display font-bold tracking-tight text-foreground">
             Construindo pontes com o mercado
           </h2>
-          <p className="mx-auto mt-5 max-w-xl text-lg leading-relaxed text-muted-foreground text-justify">
+          <p className="mx-auto mt-5 max-w-xl text-lg leading-relaxed text-muted-foreground sm:text-justify">
             Estamos abrindo espaço para instituições e empresas que queiram se
             conectar com os futuros profissionais do mercado financeiro.
           </p>

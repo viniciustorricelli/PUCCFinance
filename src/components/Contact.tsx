@@ -47,7 +47,7 @@ export function Contact() {
           <h2 className="mt-5 text-3xl sm:text-4xl lg:text-[44px] font-display font-bold leading-[1.12] tracking-tight text-foreground">
             Entre em Contato
           </h2>
-          <p className="mt-6 text-lg leading-relaxed text-muted-foreground text-justify">
+          <p className="mt-6 text-lg leading-relaxed text-muted-foreground sm:text-justify">
             Quer saber mais sobre a Liga ou participar do nosso processo
             seletivo? Fale conosco!
           </p>
@@ -163,7 +163,7 @@ export function Contact() {
             <h3 className="text-2xl sm:text-3xl font-display font-bold tracking-tight text-foreground mb-4">
               Faça Parte da Liga
             </h3>
-            <p className="mx-auto lg:mx-0 max-w-md leading-relaxed text-muted-foreground mb-8 text-justify">
+            <p className="mx-auto lg:mx-0 max-w-md leading-relaxed text-muted-foreground mb-8 sm:text-justify">
               Junte-se a uma comunidade de estudantes apaixonados pelo mercado
               financeiro. Desenvolva suas habilidades e construa sua carreira
               desde a universidade.

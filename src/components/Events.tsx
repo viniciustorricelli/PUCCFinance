@@ -53,7 +53,7 @@ function EventCard({ event, index }: { event: (typeof events)[0]; index: number 
       <h3 className="text-xl sm:text-2xl font-display font-semibold text-foreground mb-2.5 leading-snug">
         {event.title}
       </h3>
-      <p className="text-base sm:text-lg leading-relaxed text-muted-foreground text-justify">
+      <p className="text-base sm:text-lg leading-relaxed text-muted-foreground sm:text-justify">
         {event.description}
       </p>
     </motion.div>
@@ -78,7 +78,7 @@ export function Events() {
           <h2 className="mt-5 text-4xl sm:text-5xl lg:text-[52px] font-display font-bold leading-[1.12] tracking-tight text-foreground">
             Agenda da Liga
           </h2>
-          <p className="mt-6 text-xl leading-relaxed text-muted-foreground text-justify">
+          <p className="mt-6 text-xl leading-relaxed text-muted-foreground sm:text-justify">
             Acompanhe nossos canais para ficar por dentro das próximas
             palestras, workshops e competições.
           </p>
