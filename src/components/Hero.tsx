@@ -64,9 +64,8 @@ export function Hero() {
           transition={{ duration: 0.9, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
           className="mx-auto max-w-4xl text-4xl sm:text-5xl md:text-6xl lg:text-[64px] font-display font-bold leading-[1.08] tracking-tight text-foreground"
         >
-          A Liga de{" "}
-          <span className="text-gradient-gold">Mercado Financeiro</span>
-          <br className="hidden sm:block" /> da PUC-Campinas
+          <span className="text-gradient-gold">PUCC Finance</span>
+          <br className="hidden sm:block" /> A Liga de Mercado Financeiro
         </motion.h1>
 
         {/* Subheadline */}
